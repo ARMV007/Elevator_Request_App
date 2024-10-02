@@ -11,7 +11,7 @@ import SwiftUI
 struct ElevatorRequestAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ElevatorView()
         }
     }
 }

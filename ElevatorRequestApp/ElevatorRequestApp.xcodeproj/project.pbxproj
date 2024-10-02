@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		530578952CAD51BA0075182B /* ElevatorRequestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578942CAD51BA0075182B /* ElevatorRequestAppApp.swift */; };
-		530578972CAD51BA0075182B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578962CAD51BA0075182B /* ContentView.swift */; };
 		530578992CAD51BC0075182B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530578982CAD51BC0075182B /* Assets.xcassets */; };
 		5305789D2CAD51BC0075182B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5305789C2CAD51BC0075182B /* Preview Assets.xcassets */; };
 		530578A72CAD51BC0075182B /* ElevatorRequestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578A62CAD51BC0075182B /* ElevatorRequestAppTests.swift */; };
 		530578B12CAD51BC0075182B /* ElevatorRequestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578B02CAD51BC0075182B /* ElevatorRequestAppUITests.swift */; };
+		53B0C7A52CAD697400467158 /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A42CAD697400467158 /* Elevator.swift */; };
+		53B0C7A72CAD698D00467158 /* ElevatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A62CAD698D00467158 /* ElevatorView.swift */; };
+		53B0C7A92CAD69B100467158 /* ElevatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A82CAD69B100467158 /* ElevatorViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,6 @@
 /* Begin PBXFileReference section */
 		530578912CAD51BA0075182B /* ElevatorRequestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElevatorRequestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		530578942CAD51BA0075182B /* ElevatorRequestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorRequestAppApp.swift; sourceTree = "<group>"; };
-		530578962CAD51BA0075182B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		530578982CAD51BC0075182B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5305789A2CAD51BC0075182B /* ElevatorRequestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ElevatorRequestApp.entitlements; sourceTree = "<group>"; };
 		5305789C2CAD51BC0075182B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -43,6 +44,9 @@
 		530578A62CAD51BC0075182B /* ElevatorRequestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorRequestAppTests.swift; sourceTree = "<group>"; };
 		530578AC2CAD51BC0075182B /* ElevatorRequestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElevatorRequestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		530578B02CAD51BC0075182B /* ElevatorRequestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorRequestAppUITests.swift; sourceTree = "<group>"; };
+		53B0C7A42CAD697400467158 /* Elevator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
+		53B0C7A62CAD698D00467158 /* ElevatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorView.swift; sourceTree = "<group>"; };
+		53B0C7A82CAD69B100467158 /* ElevatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,8 +97,10 @@
 		530578932CAD51BA0075182B /* ElevatorRequestApp */ = {
 			isa = PBXGroup;
 			children = (
+				53B0C7A12CAD693200467158 /* Model */,
+				53B0C7A32CAD695400467158 /* View */,
+				53B0C7A22CAD693D00467158 /* ViewModel */,
 				530578942CAD51BA0075182B /* ElevatorRequestAppApp.swift */,
-				530578962CAD51BA0075182B /* ContentView.swift */,
 				530578982CAD51BC0075182B /* Assets.xcassets */,
 				5305789A2CAD51BC0075182B /* ElevatorRequestApp.entitlements */,
 				5305789B2CAD51BC0075182B /* Preview Content */,
@@ -124,6 +130,30 @@
 				530578B02CAD51BC0075182B /* ElevatorRequestAppUITests.swift */,
 			);
 			path = ElevatorRequestAppUITests;
+			sourceTree = "<group>";
+		};
+		53B0C7A12CAD693200467158 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53B0C7A42CAD697400467158 /* Elevator.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53B0C7A22CAD693D00467158 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				53B0C7A82CAD69B100467158 /* ElevatorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		53B0C7A32CAD695400467158 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53B0C7A62CAD698D00467158 /* ElevatorView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				530578972CAD51BA0075182B /* ContentView.swift in Sources */,
+				53B0C7A92CAD69B100467158 /* ElevatorViewModel.swift in Sources */,
 				530578952CAD51BA0075182B /* ElevatorRequestAppApp.swift in Sources */,
+				53B0C7A72CAD698D00467158 /* ElevatorView.swift in Sources */,
+				53B0C7A52CAD697400467158 /* Elevator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +471,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -480,7 +512,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
