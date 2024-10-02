@@ -10,7 +10,7 @@
 		530578952CAD51BA0075182B /* ElevatorRequestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578942CAD51BA0075182B /* ElevatorRequestAppApp.swift */; };
 		530578992CAD51BC0075182B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 530578982CAD51BC0075182B /* Assets.xcassets */; };
 		5305789D2CAD51BC0075182B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5305789C2CAD51BC0075182B /* Preview Assets.xcassets */; };
-		530578A72CAD51BC0075182B /* ElevatorRequestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578A62CAD51BC0075182B /* ElevatorRequestAppTests.swift */; };
+		530578A72CAD51BC0075182B /* ElevatorViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578A62CAD51BC0075182B /* ElevatorViewModelTests.swift */; };
 		530578B12CAD51BC0075182B /* ElevatorRequestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530578B02CAD51BC0075182B /* ElevatorRequestAppUITests.swift */; };
 		53B0C7A52CAD697400467158 /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A42CAD697400467158 /* Elevator.swift */; };
 		53B0C7A72CAD698D00467158 /* ElevatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A62CAD698D00467158 /* ElevatorView.swift */; };
@@ -42,7 +42,7 @@
 		5305789A2CAD51BC0075182B /* ElevatorRequestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ElevatorRequestApp.entitlements; sourceTree = "<group>"; };
 		5305789C2CAD51BC0075182B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		530578A22CAD51BC0075182B /* ElevatorRequestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElevatorRequestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		530578A62CAD51BC0075182B /* ElevatorRequestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorRequestAppTests.swift; sourceTree = "<group>"; };
+		530578A62CAD51BC0075182B /* ElevatorViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorViewModelTests.swift; sourceTree = "<group>"; };
 		530578AC2CAD51BC0075182B /* ElevatorRequestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElevatorRequestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		530578B02CAD51BC0075182B /* ElevatorRequestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorRequestAppUITests.swift; sourceTree = "<group>"; };
 		53B0C7A42CAD697400467158 /* Elevator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		530578A52CAD51BC0075182B /* ElevatorRequestAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				530578A62CAD51BC0075182B /* ElevatorRequestAppTests.swift */,
+				530578A62CAD51BC0075182B /* ElevatorViewModelTests.swift */,
 			);
 			path = ElevatorRequestAppTests;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				530578A72CAD51BC0075182B /* ElevatorRequestAppTests.swift in Sources */,
+				530578A72CAD51BC0075182B /* ElevatorViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

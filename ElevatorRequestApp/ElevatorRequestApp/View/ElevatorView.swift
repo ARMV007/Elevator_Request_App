@@ -16,27 +16,31 @@ struct ElevatorView: View {
             // Display Current Floor and Direction
             Text("Current Floor: \(elevatorViewModel.elevator.currentFloor)")
                 .font(.largeTitle)
+                .accessibilityIdentifier("currentFloorLabel")
             
             // Down Button
             Button(action: {
                 elevatorViewModel.requestElevator(direction: .up) // Request elevator
             }) {
-                Image(systemName: "chevron.up") // SF Symbol
+                Image(systemName: "chevron.up")
             }
             .modifier(ElevatorButtonStyleModifier(backgroundColor: elevatorViewModel.canMoveUp ? .blue : .gray))
-            .disabled(!elevatorViewModel.canMoveUp)// Apply custom modifier
+            .disabled(!elevatorViewModel.canMoveUp)
             .padding()
+            .accessibilityIdentifier("upButton")
             
             HStack(spacing: 10) {
                 //Display Current Direction and Loading
                 Text(directionText(elevatorViewModel.elevator.direction))
                     .font(.title2)
                     .foregroundColor(elevatorViewModel.elevator.direction == .idle ? .green : .blue)
+                    .accessibilityIdentifier("elevatorStatusLabel")
                 
                 // Loading Indicator (when moving)
                 if elevatorViewModel.isMoving {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
+                        .accessibilityIdentifier("loadingIndicator")
                 }
             }
             
@@ -44,17 +48,20 @@ struct ElevatorView: View {
             Button(action: {
                 elevatorViewModel.requestElevator(direction: .down)
             }) {
-                Image(systemName: "chevron.down") // SF Symbol
+                Image(systemName: "chevron.down")
             }
-            .modifier(ElevatorButtonStyleModifier(backgroundColor: elevatorViewModel.canMoveDown ? .blue : .gray)) // Apply custom modifier
+            .modifier(ElevatorButtonStyleModifier(backgroundColor: elevatorViewModel.canMoveDown ? .blue : .gray))
             .disabled(!elevatorViewModel.canMoveDown)
             .padding()
+            .accessibilityIdentifier("downButton")
             
             // for Demo
             Text("Top Floor: \(elevatorViewModel.elevator.topFloor)")
                 .font(.title3)
+                .accessibilityIdentifier("topFloorLabel")
             Text("Bottom Floor: \(elevatorViewModel.elevator.bottomFloor)")
                 .font(.title3)
+                .accessibilityIdentifier("bottomFloorLabel") 
         }
     }
     

@@ -10,32 +10,93 @@ import XCTest
 final class ElevatorRequestAppUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        // Set up code before each test method in the class
+        continueAfterFailure = false // Stop immediately when a failure occurs
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // Tear down code after each test method in the class
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testElevatorMovementUp() throws {
         let app = XCUIApplication()
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Assert initial state
+        XCTAssertTrue(app.staticTexts["Current Floor: 0"].exists)
+
+        // Tap the up button
+        app.buttons["upButton"].tap()
+
+        // Wait for the elevator to move to the next floor
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == true"), object: app.staticTexts["Current Floor: 1"])
+        let result = XCTWaiter.wait(for: [expectation], timeout: 5.0)
+
+        // Assert the elevator has moved up
+        XCTAssertEqual(result, .completed)
+        XCTAssertTrue(app.staticTexts["Current Floor: 1"].exists)
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func testElevatorMovementDown() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // Move the elevator up to floor 1 first
+        app.buttons["upButton"].tap()
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == true"), object: app.staticTexts["Current Floor: 1"])
+        _ = XCTWaiter.wait(for: [expectation], timeout: 5.0)
+
+        // Assert initial state on floor 1
+        XCTAssertTrue(app.staticTexts["Current Floor: 1"].exists)
+
+        // Tap the down button
+        app.buttons["downButton"].tap()
+
+        // Wait for the elevator to move to the previous floor
+        let downExpectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == true"), object: app.staticTexts["Current Floor: 0"])
+        let result = XCTWaiter.wait(for: [downExpectation], timeout: 5.0)
+
+        // Assert the elevator has moved down
+        XCTAssertEqual(result, .completed)
+        XCTAssertTrue(app.staticTexts["Current Floor: 0"].exists)
     }
+    
+    func testButtonsDisabledOnTopAndBottomFloors() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // Move to the top floor
+        for _ in 0..<5 {
+            app.buttons["upButton"].tap()
+
+            // Wait for the elevator to move up one floor
+            let currentFloorLabel = app.staticTexts["currentFloorLabel"].label
+            let currentFloor = Int(currentFloorLabel.replacingOccurrences(of: "Current Floor: ", with: "")) ?? 0
+            let expectedNextFloor = currentFloor + 1
+
+            let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == true"), object: app.staticTexts["Current Floor: \(expectedNextFloor)"])
+            _ = XCTWaiter.wait(for: [expectation], timeout: 5.0)
+        }
+
+        // Assert that the up button is disabled on the top floor
+        XCTAssertFalse(app.buttons["upButton"].isEnabled)
+
+        // Move to the bottom floor
+        for _ in -2..<5 {
+            app.buttons["downButton"].tap()
+
+            // Wait for the elevator to move down one floor
+            let currentFloorLabel = app.staticTexts["currentFloorLabel"].label
+            let currentFloor = Int(currentFloorLabel.replacingOccurrences(of: "Current Floor: ", with: "")) ?? 5
+            let expectedNextFloor = currentFloor - 1
+
+            let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == true"), object: app.staticTexts["Current Floor: \(expectedNextFloor)"])
+            _ = XCTWaiter.wait(for: [expectation], timeout: 5.0)
+        }
+
+        // Assert that the down button is disabled on the bottom floor
+        XCTAssertFalse(app.buttons["downButton"].isEnabled)
+    }
+
+
 }

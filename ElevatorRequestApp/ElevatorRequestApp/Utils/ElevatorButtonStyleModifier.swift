@@ -16,11 +16,11 @@ struct ElevatorButtonStyleModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .frame(width: width, height: height) // Set the button frame
-            .foregroundColor(textColor) // Set the icon color
-            .background(backgroundColor) // Set the button background color
-            .cornerRadius(10) // Set the corner radius
-            .font(font) // Set the font
+            .frame(width: width, height: height)
+            .foregroundColor(textColor)
+            .background(backgroundColor)
+            .cornerRadius(10)
+            .font(font) 
     }
 }
 
