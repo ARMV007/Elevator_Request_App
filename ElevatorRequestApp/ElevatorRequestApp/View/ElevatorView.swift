@@ -9,10 +9,9 @@ import SwiftUI
 
 struct ElevatorView: View {
     
-    @ObservedObject var elevatorViewModel = ElevatorViewModel()
-    
+    @ObservedObject var elevatorViewModel = ElevatorViewModel(elevator: Elevator(currentFloor: 0, direction: .idle, topFloor: 5, bottomFloor: -2))
+
     var body: some View {
-        
         VStack(spacing: 20) {
             // Display Current Floor and Direction
             Text("Current Floor: \(elevatorViewModel.elevator.currentFloor)")
@@ -20,23 +19,20 @@ struct ElevatorView: View {
             
             // Down Button
             Button(action: {
-                            elevatorViewModel.requestElevator(direction: .up) // Request elevator
-                        }) {
-                            Image(systemName: "chevron.up") // SF Symbol
-                                .font(.system(size: 25, weight: .bold)) // Increase the font size
-                                .frame(width: 100, height: 50)
-                                .foregroundColor(.white) // Icon color
-                                .background(Color.blue) // Button background color
-                                .cornerRadius(10) // Button corner radius
-                        }
-                        .padding()
-                                       
+                elevatorViewModel.requestElevator(direction: .up) // Request elevator
+            }) {
+                Image(systemName: "chevron.up") // SF Symbol
+            }
+            .modifier(ElevatorButtonStyleModifier(backgroundColor: elevatorViewModel.canMoveUp ? .blue : .gray))
+            .disabled(!elevatorViewModel.canMoveUp)// Apply custom modifier
+            .padding()
+            
             HStack(spacing: 10) {
                 //Display Current Direction and Loading
                 Text(directionText(elevatorViewModel.elevator.direction))
                     .font(.title2)
                     .foregroundColor(elevatorViewModel.elevator.direction == .idle ? .green : .blue)
-
+                
                 // Loading Indicator (when moving)
                 if elevatorViewModel.isMoving {
                     ProgressView()
@@ -49,13 +45,16 @@ struct ElevatorView: View {
                 elevatorViewModel.requestElevator(direction: .down)
             }) {
                 Image(systemName: "chevron.down") // SF Symbol
-                    .font(.system(size: 25, weight: .bold)) // Increase the font size
-                    .frame(width: 100, height: 50)
-                    .foregroundColor(.white) // Icon color
-                    .background(Color.blue) // Button background color
-                    .cornerRadius(10) // Button corner radius
             }
+            .modifier(ElevatorButtonStyleModifier(backgroundColor: elevatorViewModel.canMoveDown ? .blue : .gray)) // Apply custom modifier
+            .disabled(!elevatorViewModel.canMoveDown)
             .padding()
+            
+            // for Demo
+            Text("Top Floor: \(elevatorViewModel.elevator.topFloor)")
+                .font(.title3)
+            Text("Bottom Floor: \(elevatorViewModel.elevator.bottomFloor)")
+                .font(.title3)
         }
     }
     

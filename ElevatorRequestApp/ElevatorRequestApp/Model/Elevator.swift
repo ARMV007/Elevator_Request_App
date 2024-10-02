@@ -14,4 +14,6 @@ enum ElevatorDirection {
 struct Elevator {
     var currentFloor: Int
     var direction: ElevatorDirection
+    var topFloor: Int
+    var bottomFloor: Int
 }

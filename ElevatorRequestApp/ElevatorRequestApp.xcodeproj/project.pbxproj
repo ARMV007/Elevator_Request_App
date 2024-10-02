@@ -15,6 +15,7 @@
 		53B0C7A52CAD697400467158 /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A42CAD697400467158 /* Elevator.swift */; };
 		53B0C7A72CAD698D00467158 /* ElevatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A62CAD698D00467158 /* ElevatorView.swift */; };
 		53B0C7A92CAD69B100467158 /* ElevatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7A82CAD69B100467158 /* ElevatorViewModel.swift */; };
+		53B0C7AC2CAD6FD100467158 /* ElevatorButtonStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C7AB2CAD6FD100467158 /* ElevatorButtonStyleModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		53B0C7A42CAD697400467158 /* Elevator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
 		53B0C7A62CAD698D00467158 /* ElevatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorView.swift; sourceTree = "<group>"; };
 		53B0C7A82CAD69B100467158 /* ElevatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorViewModel.swift; sourceTree = "<group>"; };
+		53B0C7AB2CAD6FD100467158 /* ElevatorButtonStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevatorButtonStyleModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		530578932CAD51BA0075182B /* ElevatorRequestApp */ = {
 			isa = PBXGroup;
 			children = (
+				53B0C7AA2CAD6DF900467158 /* Utils */,
 				53B0C7A12CAD693200467158 /* Model */,
 				53B0C7A32CAD695400467158 /* View */,
 				53B0C7A22CAD693D00467158 /* ViewModel */,
@@ -154,6 +157,14 @@
 				53B0C7A62CAD698D00467158 /* ElevatorView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		53B0C7AA2CAD6DF900467158 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				53B0C7AB2CAD6FD100467158 /* ElevatorButtonStyleModifier.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 				530578952CAD51BA0075182B /* ElevatorRequestAppApp.swift in Sources */,
 				53B0C7A72CAD698D00467158 /* ElevatorView.swift in Sources */,
 				53B0C7A52CAD697400467158 /* Elevator.swift in Sources */,
+				53B0C7AC2CAD6FD100467158 /* ElevatorButtonStyleModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

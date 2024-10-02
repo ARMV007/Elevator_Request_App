@@ -8,8 +8,22 @@
 import Foundation
 
 class ElevatorViewModel: ObservableObject {
-    @Published var elevator = Elevator(currentFloor: 0, direction: .idle)
-    @Published var isMoving = false
+    @Published var elevator: Elevator
+    @Published var isMoving: Bool = false
+
+    init(elevator: Elevator) {
+        self.elevator = elevator
+    }
+    
+    // Computed property to check if the up button should be enabled
+    var canMoveUp: Bool {
+        return elevator.currentFloor < elevator.topFloor
+    }
+
+    // Computed property to check if the down button should be enabled
+    var canMoveDown: Bool {
+        return elevator.currentFloor > elevator.bottomFloor
+    }
     
     // Simulate delay for elevator movement
     func moveElevator(to destinationFloor: Int) {
@@ -22,7 +36,7 @@ class ElevatorViewModel: ObservableObject {
         elevator.direction = direction
         
         // Simulate movement with delay
-        let stepTime = 1.0
+        let stepTime = 2.0
         let totalSteps = abs(destinationFloor - elevator.currentFloor)
         
         for step in 1...totalSteps {
@@ -43,7 +57,7 @@ class ElevatorViewModel: ObservableObject {
     }
     
     func requestElevator(direction: ElevatorDirection) {
-        let destinationFloor = direction == .up ? elevator.currentFloor + 1 : elevator.currentFloor - 1
+        let destinationFloor = direction == .up ? elevator.currentFloor + 1 : elevator.currentFloor - 1 //for Demo moving only one floor
         moveElevator(to: destinationFloor)
     }
 }
